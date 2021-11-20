@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/graph"
+    app:startDestination="@id/kakaoMapFragment">
+
+    <fragment
+        android:id="@+id/kakaoMapFragment"
+        android:name="com.router.uwsmap.KakaoMapFragment"
+        android:label="fragment_kakao_map"
+        tools:layout="@layout/fragment_kakao_map" >
+        <action
+            android:id="@+id/action_kakaoMapFragment_to_uwsListFragment"
+            app:destination="@id/uwsListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/uwsListFragment"
+        android:name="com.router.uwsmap.UwsListFragment"
+        android:label="fragment_uws_list"
+        tools:layout="@layout/fragment_uws_list" />
+</navigation>
