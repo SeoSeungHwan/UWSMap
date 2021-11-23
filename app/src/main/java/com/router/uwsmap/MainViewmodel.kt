@@ -1,7 +1,5 @@
-package com.router
+package com.router.uwsmap
 
-import android.content.ContentValues
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -30,5 +28,6 @@ class MainViewmodel : ViewModel() {
             itemListLiveData.value = uwsService.getInformation(page,perPage,APIKey)
         }
     }
+
 
 }

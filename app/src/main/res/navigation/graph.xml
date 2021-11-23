@@ -12,11 +12,19 @@
         tools:layout="@layout/fragment_kakao_map" >
         <action
             android:id="@+id/action_kakaoMapFragment_to_uwsListFragment"
-            app:destination="@id/uwsListFragment" />
+            app:destination="@id/uwsListFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:popExitAnim="@anim/exit_to_right" />
     </fragment>
     <fragment
         android:id="@+id/uwsListFragment"
         android:name="com.router.uwsmap.UwsListFragment"
         android:label="fragment_uws_list"
-        tools:layout="@layout/fragment_uws_list" />
+        tools:layout="@layout/fragment_uws_list" >
+        <action
+            android:id="@+id/action_uwsListFragment_to_kakaoMapFragment"
+            app:destination="@id/kakaoMapFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:popExitAnim="@anim/exit_to_right" />
+    </fragment>
 </navigation>
