@@ -61,4 +61,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation files('libs/libDaumMapAndroid.jar')
 
+    //TedPermission
+    implementation 'gun0912.ted:tedpermission:2.2.3'
+
 }

@@ -1,4 +1,4 @@
-package com.router.model
+package com.router.uwsmap.model
 
 data class Item(
     val 가격: String,

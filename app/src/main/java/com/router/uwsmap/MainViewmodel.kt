@@ -1,10 +1,11 @@
 package com.router.uwsmap
 
+import android.location.Location
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.router.certificateplatform.repository.UWSService
-import com.router.model.ItemList
+import com.router.uwsmap.model.ItemList
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -27,6 +28,33 @@ class MainViewmodel : ViewModel() {
         viewModelScope.launch {
             itemListLiveData.value = uwsService.getInformation(page,perPage,APIKey)
         }
+    }
+
+    fun sortDistanceUWSList(lat : Double,lon : Double){
+        val startLocation = Location("startLocation")
+        startLocation.latitude = lat
+        startLocation.longitude = lon
+
+        val itemList = itemListLiveData.value
+        itemList!!.data.sortedWith(Comparator { a, b ->
+            val aLocation = Location("aLocation")
+            aLocation.latitude = a.위도.toDouble()
+            aLocation.longitude = a.경도.toDouble()
+
+            val bLocation = Location("bLocation")
+            bLocation.latitude = b.위도.toDouble()
+            bLocation.longitude = b.경도.toDouble()
+
+            val aDistance = startLocation.distanceTo(aLocation)
+            val bDistance = startLocation.distanceTo(bLocation)
+            when {
+                aDistance > bDistance -> 1
+                aDistance < bDistance -> -1
+                else -> 0
+            }
+        })
+
+        itemListLiveData.value = itemList
     }
 
 

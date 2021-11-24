@@ -1,6 +1,6 @@
 package com.router.certificateplatform.repository
 
-import com.router.model.ItemList
+import com.router.uwsmap.model.ItemList
 import retrofit2.http.GET
 import retrofit2.http.Query
 

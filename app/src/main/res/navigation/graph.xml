@@ -3,19 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/graph"
-    app:startDestination="@id/kakaoMapFragment">
-
-    <fragment
-        android:id="@+id/kakaoMapFragment"
-        android:name="com.router.uwsmap.KakaoMapFragment"
-        android:label="fragment_kakao_map"
-        tools:layout="@layout/fragment_kakao_map" >
-        <action
-            android:id="@+id/action_kakaoMapFragment_to_uwsListFragment"
-            app:destination="@id/uwsListFragment"
-            app:enterAnim="@anim/enter_from_right"
-            app:popExitAnim="@anim/exit_to_right" />
-    </fragment>
+    app:startDestination="@id/uwsListFragment">
     <fragment
         android:id="@+id/uwsListFragment"
         android:name="com.router.uwsmap.UwsListFragment"
@@ -23,8 +11,15 @@
         tools:layout="@layout/fragment_uws_list" >
         <action
             android:id="@+id/action_uwsListFragment_to_kakaoMapFragment"
-            app:destination="@id/kakaoMapFragment"
-            app:enterAnim="@anim/enter_from_right"
-            app:popExitAnim="@anim/exit_to_right" />
+            app:destination="@id/kakaoMapFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/kakaoMapFragment"
+        android:name="com.router.uwsmap.KakaoMapFragment"
+        android:label="fragment_kakao_map"
+        tools:layout="@layout/fragment_kakao_map" >
+        <action
+            android:id="@+id/action_kakaoMapFragment_to_uwsListFragment"
+            app:destination="@id/uwsListFragment" />
     </fragment>
 </navigation>

@@ -1,4 +1,4 @@
-package com.router.model
+package com.router.uwsmap.model
 
 data class ItemList(
     val currentCount: Int,
