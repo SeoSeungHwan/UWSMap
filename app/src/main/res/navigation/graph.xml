@@ -11,7 +11,9 @@
         tools:layout="@layout/fragment_uws_list" >
         <action
             android:id="@+id/action_uwsListFragment_to_kakaoMapFragment"
-            app:destination="@id/kakaoMapFragment" />
+            app:destination="@id/kakaoMapFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:popExitAnim="@anim/exit_to_right" />
     </fragment>
     <fragment
         android:id="@+id/kakaoMapFragment"
@@ -21,5 +23,8 @@
         <action
             android:id="@+id/action_kakaoMapFragment_to_uwsListFragment"
             app:destination="@id/uwsListFragment" />
+        <argument
+            android:name="itemId"
+            app:argType="com.router.uwsmap.model.Item" />
     </fragment>
 </navigation>

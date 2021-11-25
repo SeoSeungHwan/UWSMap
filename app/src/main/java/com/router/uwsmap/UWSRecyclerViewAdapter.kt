@@ -1,11 +1,14 @@
 package com.router.uwsmap
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.router.uwsmap.model.Item
 import com.router.uwsmap.model.ItemList
 
 class UWSRecyclerViewAdapter(private val dataSet: ItemList) :
@@ -14,23 +17,25 @@ class UWSRecyclerViewAdapter(private val dataSet: ItemList) :
     lateinit var context : Context
 
     interface ItemClick{
-        fun onClick(view : View, position: Int, board_id : String)
+        fun onClick(view : View, position: Int, item : Item)
     }
     var itemClick : ItemClick? = null
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val uws_location_tv: TextView
         val uws_phone_tv: TextView
-        val uws_time_tv: TextView
+        val uws_direction_tv: TextView
         val uws_km_tv: TextView
         val uws_count_tv: TextView
+        val uws_item_cl : ConstraintLayout
 
         init {
             uws_location_tv = view.findViewById(R.id.uws_location_tv)
             uws_phone_tv = view.findViewById(R.id.uws_phone_tv)
-            uws_time_tv = view.findViewById(R.id.uws_time_tv)
+            uws_direction_tv = view.findViewById(R.id.uws_direction_tv)
             uws_km_tv = view.findViewById(R.id.uws_km_tv)
             uws_count_tv = view.findViewById(R.id.uws_count_tv)
+            uws_item_cl = view.findViewById(R.id.uws_item_cl)
         }
 
     }
@@ -48,12 +53,21 @@ class UWSRecyclerViewAdapter(private val dataSet: ItemList) :
 
         viewHolder.uws_location_tv.text = dataSet.data.get(position).주소
         viewHolder.uws_phone_tv.text = dataSet.data.get(position).전화번호
-        viewHolder.uws_time_tv.text = dataSet.data.get(position).영업시간
-        viewHolder.uws_km_tv.text = "1km"
+        viewHolder.uws_direction_tv.text = dataSet.data.get(position).명칭
+        viewHolder.uws_km_tv.text = String.format("%.2f",dataSet.data.get(position).거리) + "km"
         if(dataSet.data.get(position).재고량.equals("0")){
             viewHolder.uws_count_tv.text = "재고없음"
+            viewHolder.uws_count_tv.setTextColor(Color.RED)
         }else{
             viewHolder.uws_count_tv.text = dataSet.data.get(position).재고량+"개"
+            viewHolder.uws_count_tv.setTextColor(Color.BLACK)
+
+        }
+
+        if(itemClick != null){
+            viewHolder.uws_item_cl.setOnClickListener {
+                itemClick?.onClick(it,position,dataSet.data.get(position))
+            }
         }
 
 
