@@ -51,15 +51,15 @@ class UWSRecyclerViewAdapter(private val dataSet: ItemList) :
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 
-        viewHolder.uws_location_tv.text = dataSet.data.get(position).주소
-        viewHolder.uws_phone_tv.text = dataSet.data.get(position).전화번호
-        viewHolder.uws_direction_tv.text = dataSet.data.get(position).명칭
-        viewHolder.uws_km_tv.text = String.format("%.2f",dataSet.data.get(position).거리) + "km"
-        if(dataSet.data.get(position).재고량.equals("0")){
+        viewHolder.uws_location_tv.text = dataSet.data.get(position).addr
+        viewHolder.uws_phone_tv.text = dataSet.data.get(position).tel
+        viewHolder.uws_direction_tv.text = dataSet.data.get(position).name
+        viewHolder.uws_km_tv.text = String.format("%.2f",dataSet.data.get(position).distance) + "km"
+        if(dataSet.data.get(position).inventory.equals("0")){
             viewHolder.uws_count_tv.text = "재고없음"
             viewHolder.uws_count_tv.setTextColor(Color.RED)
         }else{
-            viewHolder.uws_count_tv.text = dataSet.data.get(position).재고량+"개"
+            viewHolder.uws_count_tv.text = dataSet.data.get(position).inventory+"개"
             viewHolder.uws_count_tv.setTextColor(Color.BLACK)
 
         }

@@ -37,16 +37,14 @@ class MainViewmodel : ViewModel() {
 
             itemList.data.forEach { item ->
                 val location = Location("Location")
-                location.latitude = item.위도.toDouble()
-                location.longitude = item.경도.toDouble()
+                location.latitude = item.lat.toDouble()
+                location.longitude = item.lng.toDouble()
 
                 val distance = location.distanceTo(myLocation)
-                item.거리 = distance.toDouble() / 1000
+                item.distance = distance.toDouble() / 1000
             }
 
-            itemList.data = itemList.data.sortedBy { it.거리 }
-            Log.d(TAG, "fetchUWSList: ${itemList.data.toString()}")
-
+            itemList.data = itemList.data.sortedBy { it.distance }
 
             itemListLiveData.value = itemList
             loadingLivedata.value = false

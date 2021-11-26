@@ -6,10 +6,10 @@ import retrofit2.http.Query
 
 interface UWSService {
     companion object{
-        const val BASE_URL = "http://api.odcloud.kr/api/15094782/v1/"
+        const val BASE_URL = "http://api.odcloud.kr/api/uws/v1/"
     }
 
-    @GET("./uddi:6b2017af-659d-437e-a549-c59788817675")
+    @GET("inventory")
     suspend fun getInformation(
         @Query("page") page: Int,
         @Query("perPage") perPage: Int,

@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
                             )
                             //최종 업데이트 시간 가져오기
                             viewModel.itemListLiveData.observe(this@MainActivity,{
-                                update_time_tv.text = "최종 업데이트 : ${it.data.get(0).데이터기준일}"
+                                update_time_tv.text = "최종 업데이트 : ${it.data.get(0).regDt}"
                             })
 
                             //새로고침 하면 다시가져오기

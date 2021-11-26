@@ -4,23 +4,25 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class Item(
-    val 가격: String,
-    val 경도: String,
-    var 거리: Double = 0.0,
-    val 데이터기준일: String,
-    val 명칭: String,
-    val 영업시간: String,
-    val 위도: String,
-    val 재고량: String,
-    val 전화번호: String,
-    val 주소: String,
-    val 코드: String
+    val addr: String,
+    val code: String,
+    var distance : Double,
+    val color: String,
+    val inventory: String,
+    val lat: String,
+    val lng: String,
+    val name: String,
+    val openTime: String,
+    val price: String,
+    val regDt: String,
+    val tel: String
 ) : Parcelable
 {
     constructor(parcel: Parcel) : this(
         parcel.readString().toString(),
         parcel.readString().toString(),
         parcel.readDouble(),
+        parcel.readString().toString(),
         parcel.readString().toString(),
         parcel.readString().toString(),
         parcel.readString().toString(),
