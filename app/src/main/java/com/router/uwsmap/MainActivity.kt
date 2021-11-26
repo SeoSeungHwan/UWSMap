@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
                     .addOnSuccessListener { location: Location? ->
                         if (location != null) {
 
-                            Toast.makeText(this@MainActivity,"클릭시 지도로 위치를 확인할 수 있습니다.",Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@MainActivity,"항목 클릭시 지도로 이동합니다.",Toast.LENGTH_SHORT).show()
 
                             //요소수 정보 가져오기
                             viewModel.fetchUWSList(
@@ -55,17 +55,6 @@ class MainActivity : AppCompatActivity() {
                             viewModel.itemListLiveData.observe(this@MainActivity,{
                                 update_time_tv.text = "최종 업데이트 : ${it.data.get(0).regDt}"
                             })
-
-                            //새로고침 하면 다시가져오기
-                            swipeRefreshLayout.setOnRefreshListener {
-                                viewModel.fetchUWSList(
-                                    0,
-                                    1000,
-                                    "TPjqY3dBCSVQ6T0f%2BBo7WsczzD%2FAy7pmHDdcXDJwRpeE8P4LVp%2Bxq8g8IaQcOLYGSkMWPi4ofPfwEuctz4DRGA%3D%3D",
-                                    location)
-                                swipeRefreshLayout.isRefreshing = false
-
-                            }
                         }
                         else{
                             Toast.makeText(this@MainActivity,"현재위치를 가져오지 못했습니다.",Toast.LENGTH_SHORT).show()

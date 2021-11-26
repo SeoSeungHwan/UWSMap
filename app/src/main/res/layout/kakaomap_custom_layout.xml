@@ -30,7 +30,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="10dp"
-            android:text="클릭하여 네이버 지도로 길찾기"
+            android:text="길찾기 준비중입니다."
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
