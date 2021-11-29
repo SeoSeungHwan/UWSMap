@@ -1,8 +1,7 @@
 package com.router.uwsmap
 
-import android.content.ContentValues.TAG
+
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,12 +38,17 @@ class KakaoMapFragment : Fragment() {
                 marker.itemName = item.name +" : "+item.inventory+"개"
                 marker.tag = 0
                 marker.mapPoint = mapPoint
+                marker.markerType = MapPOIItem.MarkerType.CustomImage
 
-
-                if (item.inventory.equals("0")) {
-                    marker.markerType = MapPOIItem.MarkerType.RedPin
-                } else {
-                    marker.markerType = MapPOIItem.MarkerType.BluePin
+                val inventory = item.inventory.toInt()
+                if (inventory ==0) {
+                    marker.customImageResourceId = R.drawable.zero
+                } else if(inventory in 1..99){
+                    marker.customImageResourceId = R.drawable.markerunder
+                } else if(inventory in 100..499){
+                    marker.customImageResourceId = R.drawable.marker500
+                }else{
+                    marker.customImageResourceId = R.drawable.marker1000
                 }
                 mapView.addPOIItem(marker)
 
