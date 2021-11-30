@@ -46,6 +46,8 @@ class KakaoMapFragment : Fragment() {
                 } else if(inventory in 1..99){
                     marker.customImageResourceId = R.drawable.markerunder
                 } else if(inventory in 100..499){
+                    marker.customImageResourceId = R.drawable.marker100
+                }else if(inventory in 500..999){
                     marker.customImageResourceId = R.drawable.marker500
                 }else{
                     marker.customImageResourceId = R.drawable.marker1000
