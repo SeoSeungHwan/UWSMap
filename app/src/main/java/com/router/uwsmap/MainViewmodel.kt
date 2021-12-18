@@ -15,7 +15,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 class MainViewmodel : ViewModel() {
 
     private val uwsService: UWSService
-
+    lateinit var location : Location
     init {
         val retrofit = Retrofit.Builder()
             .baseUrl(UWSService.BASE_URL)

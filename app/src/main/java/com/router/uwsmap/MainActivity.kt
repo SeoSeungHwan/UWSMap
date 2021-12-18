@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                 fusedLocationClient.lastLocation
                     .addOnSuccessListener { location: Location? ->
                         if (location != null) {
-
+                            viewModel.location =location
                             Toast.makeText(this@MainActivity,"항목 클릭시 지도로 이동합니다.",Toast.LENGTH_SHORT).show()
 
                             //요소수 정보 가져오기
@@ -73,9 +73,10 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.loadingLivedata.observe(this@MainActivity,{
             if (it) {
-                progressBar.bringToFront()
+                //progressBar.bringToFront()
                 progressBar.visibility = View.VISIBLE
             } else {
+                //progressBar.bringToFront()
                 progressBar.visibility = View.GONE
             }
         })

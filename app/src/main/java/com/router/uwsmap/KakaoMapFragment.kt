@@ -1,7 +1,9 @@
 package com.router.uwsmap
 
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,7 +23,7 @@ class KakaoMapFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val args : KakaoMapFragmentArgs by navArgs()
-
+        
         //MapView 초기화
         val mapView = MapView(activity)
         val mapViewContainer = view.findViewById(R.id.map_view) as ViewGroup
@@ -31,6 +33,7 @@ class KakaoMapFragment : Fragment() {
 
         mapView.setMapCenterPointAndZoomLevel(MapPoint.mapPointWithGeoCoord(args.itemId.lat.toDouble(),args.itemId.lng.toDouble()),5,true)
         viewModel.itemListLiveData.observe(viewLifecycleOwner, {
+            viewModel.loadingLivedata.value = true
             for (item in it.data) {
                 val mapPoint = MapPoint.mapPointWithGeoCoord(item.lat.toDouble(), item.lng.toDouble())
 
@@ -39,7 +42,6 @@ class KakaoMapFragment : Fragment() {
                 marker.tag = 0
                 marker.mapPoint = mapPoint
                 marker.markerType = MapPOIItem.MarkerType.CustomImage
-
                 val inventory = item.inventory.toInt()
                 if (inventory ==0) {
                     marker.customImageResourceId = R.drawable.zero
@@ -53,8 +55,8 @@ class KakaoMapFragment : Fragment() {
                     marker.customImageResourceId = R.drawable.marker1000
                 }
                 mapView.addPOIItem(marker)
-
             }
+            viewModel.loadingLivedata.value = false
         })
 
     }
