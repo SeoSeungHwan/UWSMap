@@ -1,7 +1,10 @@
 package com.router.uwsmap.model
 
+import android.graphics.Color
 import android.os.Parcel
 import android.os.Parcelable
+import android.widget.TextView
+import androidx.databinding.BindingAdapter
 
 data class Item(
     val addr: String,
@@ -49,4 +52,19 @@ data class Item(
             return arrayOfNulls(size)
         }
     }
+
+    fun formatDoubleKM() : String{
+        return String.format("%.2f",distance) + "km"
+    }
+
+    fun checkInventoryZero() : String{
+        if(inventory.equals("0")){
+            return "재고없음"
+        }else{
+            return inventory + "개"
+        }
+    }
+
+
+
 }

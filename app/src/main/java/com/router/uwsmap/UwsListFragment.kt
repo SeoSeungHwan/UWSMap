@@ -22,7 +22,6 @@ import java.lang.Exception
 
 class UwsListFragment : Fragment() {
 
-
     private val viewModel : MainViewmodel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -84,5 +83,4 @@ class UwsListFragment : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.fragment_uws_list, container, false)
     }
-
 }

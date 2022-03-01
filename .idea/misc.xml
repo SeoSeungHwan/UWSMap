@@ -14,10 +14,13 @@
         <entry key="..\:/Users/seunghwan/AndroidStudioProjects/UWSMap/app/src/main/res/layout/kakaomap_custom_layout.xml" value="0.23020833333333332" />
         <entry key="..\:/Users/seunghwan/AndroidStudioProjects/UWSMap/app/src/main/res/layout/uws_item.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/tmdgh/AndroidStudioProjects/UWSMap/app/src/main/res/layout/activity_main.xml" value="0.3619791666666667" />
+        <entry key="..\:/Users/tmdgh/AndroidStudioProjects/UWSMap/app/src/main/res/layout/fragment_kakao_map.xml" value="0.3619791666666667" />
+        <entry key="..\:/Users/tmdgh/AndroidStudioProjects/UWSMap/app/src/main/res/layout/fragment_uws_list.xml" value="0.3619791666666667" />
+        <entry key="..\:/Users/tmdgh/AndroidStudioProjects/UWSMap/app/src/main/res/layout/uws_item.xml" value="0.3619791666666667" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
