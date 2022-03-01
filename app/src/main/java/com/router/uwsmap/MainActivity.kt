@@ -10,6 +10,10 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.material.tabs.TabLayout
@@ -21,6 +25,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     private val viewModel: MainViewmodel by viewModels()
+
+    lateinit var mAdView : AdView
 
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
@@ -92,6 +98,13 @@ class MainActivity : AppCompatActivity() {
                 android.Manifest.permission.ACCESS_COARSE_LOCATION
             )
             .check()
+
+        //Admob 초기화 및 load
+        MobileAds.initialize(this) {}
+
+        mAdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
     }
 
 

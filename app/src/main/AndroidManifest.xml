@@ -19,6 +19,11 @@
         android:theme="@style/Theme.UWSMap"
         >
 
+        <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-5086679279657695~3211371134"/>
+
         <meta-data android:name="com.kakao.sdk.AppKey" android:value="27de896f81d367cb0156cb294f9575e3"/>
 
         <activity

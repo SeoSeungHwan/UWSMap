@@ -82,4 +82,7 @@ dependencies {
 
     //Paging
     implementation "androidx.paging:paging-runtime-ktx:3.1.0"
+
+    //AdMob
+    implementation 'com.google.android.gms:play-services-ads:20.5.0'
 }

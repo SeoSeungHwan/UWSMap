@@ -2,4 +2,7 @@
     <string name="app_name">요소수 재고확인</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="banner">ca-app-pub-5086679279657695/1515146084</string>
+    <string name="banner_test">ca-app-pub-3940256099942544/6300978111</string>
 </resources>
